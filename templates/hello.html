@@ -9,6 +9,19 @@
         <title>Hi!</title>
     </head>
     <body>
+        {%if session %}
+        <h1>SESSION</h1>
+        <code>
+            <pre>
+                {{session.user|tojson}}
+            </pre>
+        </code>
+        <a href="/logout">Logout</a>  
+        {% else %}
+            <h1>NO SESSION</h1>
+            <a href="/login">Login</a>    
+        {% endif %}
+
         <h2>Guest List</h2>
         <form action="/submit" method="post">
             <label for="name">Name:
